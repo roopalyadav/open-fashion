@@ -42,10 +42,7 @@ function NewArrival({ title, tabs, products, activeTab }) {
               <img 
                 src={product.image} 
                 alt={product.title} 
-                className="product-image"
-                loading="eager"
-                decoding="sync"
-                draggable="false"
+                className="product-image" 
               />
             </div>
             <div className="product-details">
