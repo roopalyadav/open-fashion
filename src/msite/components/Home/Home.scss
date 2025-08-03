@@ -1,0 +1,65 @@
+@use '../../variables.scss' as *;
+
+.home-container {
+  width: 100%;
+  
+  // Common styling for loading and error states
+  .loading-indicator,
+  .error-message {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .loading-indicator {
+    background-color: rgba($light-grayish-blue, 0.5);
+    color: $dark-color;
+  }
+  
+  .error-message {
+    background-color: rgba($error-color, 0.1);
+    color: $error-color;
+  }
+  
+  // Common section styling
+  .home-section {
+    margin-bottom: 20px;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  // Specific section styles
+  .featured-section {
+    padding: 40px 20px;
+    
+    h2 {
+      @include typography-regular-ls-2;
+      text-align: center;
+      margin-bottom: 30px;
+      text-transform: uppercase;
+      color: $title-active-color;
+    }
+    
+    .featured-products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 20px;
+      
+      .placeholder-product {
+        width: calc(33.333% - 14px);
+        height: 300px;
+        background-color: $light-grayish-blue;
+        border-radius: 5px;
+        
+        @media (max-width: 768px) {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,204 @@
+@use '../../variables.scss' as *;
+
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  
+  .category-labels {
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    z-index: 5;
+    
+    .category-label {
+      font-family: $font-family-bodoni;
+      font-size: 38.66px;
+      line-height: 43.5px;
+      letter-spacing: 1.21px;
+      font-weight: 700;
+      font-style: italic;
+      color: rgba($body-color, 0.7);
+      text-transform: uppercase;
+    }
+  }
+  
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel-item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    
+    .carousel-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    
+    .carousel-caption {
+      position: absolute;
+      bottom: 20%;
+      left: 0;
+      right: 0;
+      padding: 20px;
+      color: $off-white-color;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(2px);
+      
+      h2 {
+        @include typography-regular-ls-2;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+      
+      p {
+        @include typography-medium-ls-0;
+        margin-bottom: 20px;
+      }
+      
+      .carousel-button {
+        background-color: $default-color;
+        color: $off-white-color;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        @include typography-regular-ls-2;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+          background-color: $dark-color;
+        }
+      }
+    }
+  }
+  
+  .carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $off-white-color;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &.prev {
+      left: 20px;
+    }
+    
+    &.next {
+      right: 20px;
+    }
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  .carousel-indicators {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    z-index: 10;
+    
+    .carousel-indicator {
+      width: 6px;
+      height: 6px;
+      transform: rotate(45deg);
+      background-color: rgba(255, 255, 255, 0.5);
+      border: none;
+      margin: 0 8px;
+      padding: 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      
+      &.active {
+        background-color: $off-white-color;
+      }
+    }
+  }
+  
+  .carousel-autoplay-toggle {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $off-white-color;
+    border: none;
+    border-radius: 50%;
+    font-size: 12px;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+  }
+  
+  .explore-collection-container {
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    
+    .explore-collection-button {
+      background-color: rgba($title-active-color, 0.4); /* 40% opacity */
+      color: $off-white-color;
+      border-radius: 30px;
+      width: 225px;
+      text-align: center;
+      padding: 12px 24px;
+      cursor: pointer;
+      text-transform: uppercase;
+      @include typography-regular-ls-0;
+      transition: background-color 0.3s ease;
+      
+      &:hover {
+        background-color: $dark-color;
+      }
+    }
+  }
+}

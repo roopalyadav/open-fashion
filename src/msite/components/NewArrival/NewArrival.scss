@@ -1,0 +1,180 @@
+@use '../../variables.scss' as *;
+
+.new-arrival {
+  padding: 0px 16px;
+  
+  @media (min-width: 480px) {
+    padding: 40px 24px;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 40px 32px;
+  }
+  
+  .section-title {
+    @include typography-large-ls-4;
+    text-align: center;
+    text-transform: uppercase;
+    color: $title-active-color;
+    font-size: 20px;
+    
+    &.with-underline {
+      position: relative;
+      padding-bottom: 24px;
+      
+      /* Left half of line */
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 22px;
+        left: 50%;
+        transform: translateX(-60px);
+        height: 1px;
+        background-color: $label-color;
+        width: 54px;
+        opacity: 0.3;
+      }
+      
+      /* Right half of line */
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 22px;
+        right: 50%;
+        transform: translateX(60px);
+        height: 1px;
+        background-color: $label-color;
+        width: 54px;
+        opacity: 0.3;
+      }
+      
+      /* Diamond in the middle - we'll use a separate element for this */
+      .diamond {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        bottom: 17px;
+        left: 50%;
+        transform: translate(-50%, 0) rotate(45deg);
+        background-color: white;
+        border: 1px solid $label-color;
+        opacity: 0.3;
+      }
+      
+      /* We don't need the line-right or additional :before pseudo-element anymore */
+      .line-right {
+        display: none;
+      }
+    }
+  }
+  
+  .tab-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -4px 13px -4px; /* Negative margin to allow tabs to use full width */
+    width: calc(100% + 8px); /* Compensate for the negative margins */
+    
+    .tab-button {
+      background: none;
+      border: none;
+      padding: 8px 4px;
+      flex: 1;
+      text-align: center;
+      @include typography-medium-ls-2;
+    //   text-transform: uppercase;
+      color: $placeholder-color;
+      cursor: pointer;
+      position: relative;
+      white-space: nowrap; /* Prevent text wrapping */
+      
+      /* Diamond indicator for selected tab */
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 4px;
+        left: 50%;
+        width: 4px;
+        height: 4px;
+        background-color: transparent;
+        transform: translateX(-50%) rotate(45deg) scale(0);
+        transition: transform 0.3s ease, background-color 0.3s ease;
+      }
+      
+      &.active {
+        color: $title-active-color;
+        
+        &:after {
+          background-color: $default-color;
+          transform: translateX(-50%) rotate(45deg) scale(1);
+        }
+      }
+      
+      &:focus {
+        outline: none;
+      }
+      
+      /* Adjust spacing for larger screens */
+      @media (min-width: 375px) {
+        font-size: 14px;
+        padding: 8px 6px;
+      }
+      
+      @media (min-width: 480px) {
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+    }
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    
+    @media (min-width: 480px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  .product-card {
+    // margin-bottom: 24px;
+    
+    .product-image-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 125%; /* 4:5 aspect ratio */
+      margin-bottom: 12px;
+      overflow: hidden;
+      background-color: $light-grayish-blue;
+    }
+    
+    .product-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    .product-details {
+      padding: 0 4px;
+      text-align: center
+    }
+    
+    .product-title {
+      @include typography-small-ls-0;
+      line-height: 18px;
+      color: $title-active-color;
+      font-weight: 400;
+    }
+    
+    .product-price {
+      @include typography-small-ls-0;
+      font-size: 15px;
+      line-height: 24px;
+      color: $default-color;
+    }
+  }
+}

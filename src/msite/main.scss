@@ -1,0 +1,62 @@
+@use './variables.scss' as *;
+
+body {
+  @include typography-regular-ls-0;
+  background: #FFFFFF;
+}
+
+// Small size (12px)
+.fs-12 {
+  @include typography-small-ls-0;
+}
+
+// Medium size (14px)
+.fs-14 {
+  @include typography-medium-ls-0;
+}
+
+.fs-14-ls-2 {
+  @include typography-medium-ls-2;
+}
+
+// Regular size (16px)
+.fs-16 {
+  @include typography-regular-ls-0;
+}
+
+.fs-16-ls-2 {
+  @include typography-regular-ls-2;
+}
+
+// Large size (18px)
+.fs-18-ls-4 {
+  @include typography-large-ls-4;
+}
+
+.display-flex {
+  display: flex;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.text-center {
+  text-align: center;
+}
+// Width utilities (1% to 100%)
+@for $i from 1 through 100 {
+  .w-#{$i} {
+    width: #{$i}#{'%'};
+  }
+}
+
+// Add more global styles as needed

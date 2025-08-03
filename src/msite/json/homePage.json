@@ -1,0 +1,227 @@
+{
+  "carousel": {
+    "toShow": true,
+    "height": 600,
+    "autoPlay": true,
+    "interval": 5000,
+    "images": [
+      {
+        "id": 1,
+        "src": "/assets/carousel-image-1.jpg",
+        "caption": {
+          "title": "Summer Collection",
+          "description": "Discover our new summer arrivals",
+          "buttonText": "Shop Now"
+        }
+      },
+      {
+        "id": 2,
+        "src": "/assets/carousel-image-2.jpg",
+        "caption": {
+          "title": "Luxury Accessories",
+          "description": "Elevate your style with premium accessories",
+          "buttonText": "View Collection"
+        }
+      },
+      {
+        "id": 3,
+        "src": "/assets/carousel-image-3.png",
+        "caption": {
+          "title": "Designer Fashion",
+          "description": "Explore our exclusive designer pieces",
+          "buttonText": "Discover More"
+        }
+      }
+    ],
+    "categoryLabels": [
+      "LUXURY",
+      "FASHION",
+      "ACCESSORIES"
+    ]
+  },
+  "newArrival": {
+    "toShow": true,
+    "title": "New Arrival",
+    "status": "idle",
+    "error": null,
+    "tabs": [
+      {
+        "id": "all",
+        "label": "All",
+        "active": true
+      },
+      {
+        "id": "apparel",
+        "label": "Apparel",
+        "active": false
+      },
+      {
+        "id": "dress",
+        "label": "Dress",
+        "active": false
+      },
+      {
+        "id": "tshirt",
+        "label": "Tshirt",
+        "active": false
+      },
+      {
+        "id": "bag",
+        "label": "Bag",
+        "active": false
+      }
+    ],
+    "products": {
+      "all": [
+        {
+          "id": "na001",
+          "image": "/assets/newArrival/product-all-1.svg",
+          "title": "Textured Sunset Sweater",
+          "price": 63.85,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na002",
+          "image": "/assets/newArrival/product-all-2.svg",
+          "title": "Imperial Alpaca Hoodie",
+          "price": 525.00,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na003",
+          "image": "/assets/newArrival/product-all-3.svg",
+          "title": "Beige Minimalist Dress",
+          "price": 236.00,
+          "categories": ["apparel", "dress"]
+        },
+        {
+          "id": "na004",
+          "image": "/assets/newArrival/product-all-4.svg",
+          "title": "Leather Weekend Duffle Bag",
+          "price": 185.00,
+          "categories": ["bag"]
+        }
+      ],
+      "apparel": [
+        {
+          "id": "na001",
+          "image": "/assets/newArrival/dress-4.svg",
+          "title": "Textured Sunset Sweater",
+          "price": 63.85,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na002",
+          "image": "/assets/newArrival/dress-3.svg",
+          "title": "Imperial Alpaca Hoodie",
+          "price": 525.00,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na003",
+          "image": "/assets/newArrival/dress-1.svg",
+          "title": "Beige Minimalist Dress",
+          "price": 236.00,
+          "categories": ["apparel", "dress"]
+        },
+        {
+          "id": "na005",
+          "image": "/assets/newArrival/bag-2.svg",
+          "title": "Linen Summer Blazer",
+          "price": 325.00,
+          "categories": ["apparel"]
+        }
+      ],
+      "dress": [
+        {
+          "id": "na003",
+          "image": "/assets/newArrival/dress-1.svg",
+          "title": "Beige Minimalist Dress",
+          "price": 236.00,
+          "categories": ["apparel", "dress"]
+        },
+        {
+          "id": "na006",
+          "image": "/assets/newArrival/dress-2.svg",
+          "title": "Floral Print Midi Dress",
+          "price": 175.00,
+          "categories": ["apparel", "dress"]
+        },
+        {
+          "id": "na007",
+          "image": "/assets/newArrival/dress-3.svg",
+          "title": "Silk Evening Dress",
+          "price": 499.00,
+          "categories": ["apparel", "dress"]
+        },
+        {
+          "id": "na008",
+          "image": "/assets/newArrival/dress-4.svg",
+          "title": "Casual Summer Dress",
+          "price": 129.00,
+          "categories": ["apparel", "dress"]
+        }
+      ],
+      "tshirt": [
+        {
+          "id": "na001",
+          "image": "/assets/newArrival/product-all-2.svg",
+          "title": "Textured Sunset Sweater",
+          "price": 63.85,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na002",
+          "image": "/assets/newArrival/dress-3.svg",
+          "title": "Imperial Alpaca Hoodie",
+          "price": 525.00,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na009",
+          "image": "/assets/newArrival/dress-1.svg",
+          "title": "Organic Cotton T-Shirt",
+          "price": 45.00,
+          "categories": ["apparel", "tshirt"]
+        },
+        {
+          "id": "na010",
+          "image": "/assets/newArrival/product-all-1.svg",
+          "title": "Graphic Print Tee",
+          "price": 39.99,
+          "categories": ["apparel", "tshirt"]
+        }
+      ],
+      "bag": [
+        {
+          "id": "na004",
+          "image": "/assets/newArrival/product-all-4.svg",
+          "title": "Leather Weekend Duffle Bag",
+          "price": 185.00,
+          "categories": ["bag"]
+        },
+        {
+          "id": "na011",
+          "image": "/assets/newArrival/bag-1.svg",
+          "title": "Canvas Tote Bag",
+          "price": 75.00,
+          "categories": ["bag"]
+        },
+        {
+          "id": "na012",
+          "image": "/assets/newArrival/product-all-2.svg",
+          "title": "Structured Leather Handbag",
+          "price": 295.00,
+          "categories": ["bag"]
+        },
+        {
+          "id": "na013",
+          "image": "/assets/newArrival/bag-2.svg",
+          "title": "Crossbody Mini Bag",
+          "price": 125.00,
+          "categories": ["bag"]
+        }
+      ]
+    }
+  }
+}
