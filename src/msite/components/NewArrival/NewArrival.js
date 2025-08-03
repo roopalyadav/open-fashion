@@ -46,6 +46,12 @@ function NewArrival({ title, tabs, products, activeTab }) {
                 loading="eager"
                 decoding="sync"
                 draggable="false"
+                width="100%"
+                height="100%"
+                onError={(e) => {
+                  // Retry with a different rendering approach if image fails
+                  e.target.style.objectFit = "fill";
+                }}
               />
             </div>
             <div className="product-details">
