@@ -147,13 +147,10 @@
       margin-bottom: 12px;
       overflow: hidden;
       background-color: $light-grayish-blue;
-      /* Simplify rendering for iOS */
-      transform: none;
-      -webkit-transform: none;
-      will-change: auto;
-      /* Add a subtle border to help with rendering */
-      border: 0.5px solid transparent;
-      border-radius: 0;
+      /* Improve rendering on iOS */
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      will-change: transform;
     }
     
     .product-image {
@@ -162,17 +159,13 @@
       left: 0;
       width: 100%;
       height: 100%;
-      object-fit: contain; /* Changed from cover to contain for SVGs */
-      /* Advanced iOS SVG rendering fixes */
-      image-rendering: -webkit-optimize-contrast; /* iOS specific */
-      image-rendering: crisp-edges; /* Modern browsers */
-      -ms-interpolation-mode: nearest-neighbor; /* IE/Edge */
-      /* Disable transformations that could cause blurring */
-      transform: none !important;
-      -webkit-transform: none !important;
-      /* Ensure proper pixel alignment */
-      margin: 0;
-      padding: 0;
+      object-fit: cover;
+      /* Fix for blurry images on iOS */
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      -webkit-font-smoothing: subpixel-antialiased;
     }
     
     .product-details {
