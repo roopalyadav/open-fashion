@@ -223,5 +223,9 @@
         }
       ]
     }
+  },
+  "brands": {
+    "isShow": true,
+    "image-url": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Brand.png?updatedAt=1754323627135"
   }
 }

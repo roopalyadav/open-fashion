@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getCarouselData, getNewArrivalData } from '../../api/homePageApi';
+import { getCarouselData, getNewArrivalData, getBrandsData } from '../../api/homePageApi';
 
 // Async thunk for fetching carousel data
 export const fetchCarouselData = createAsyncThunk(
@@ -16,6 +16,15 @@ export const fetchNewArrivalData = createAsyncThunk(
   async () => {
     const newArrivalData = await getNewArrivalData();
     return newArrivalData;
+  }
+);
+
+// Async thunk for fetching brands data
+export const fetchBrandsData = createAsyncThunk(
+  'home/fetchBrandsData',
+  async () => {
+    const brandsData = await getBrandsData();
+    return brandsData;
   }
 );
 
@@ -36,6 +45,12 @@ const initialState = {
     tabs: [],
     products: {},
     activeTab: "all",
+    status: 'idle',
+    error: null
+  },
+  brands: {
+    toShow: true,
+    imageUrl: "",
     status: 'idle',
     error: null
   },
@@ -113,6 +128,32 @@ const homeSlice = createSlice({
       .addCase(fetchNewArrivalData.rejected, (state, action) => {
         state.newArrival.status = 'failed';
         state.newArrival.error = action.error.message || 'Something went wrong';
+      })
+      
+      // Brands data reducers
+      .addCase(fetchBrandsData.pending, (state) => {
+        state.brands.status = 'loading';
+      })
+      .addCase(fetchBrandsData.fulfilled, (state, action) => {
+        if (action.payload) {
+          // Preserve the current toShow value from state when updating
+          const toShowValue = state.brands.toShow;
+          
+          state.brands = {
+            toShow: action.payload.isShow !== undefined 
+              ? action.payload.isShow 
+              : toShowValue,
+            imageUrl: action.payload['image-url'] || "",
+            status: 'succeeded',
+            error: null
+          };
+        } else {
+          state.brands.status = 'succeeded';
+        }
+      })
+      .addCase(fetchBrandsData.rejected, (state, action) => {
+        state.brands.status = 'failed';
+        state.brands.error = action.error.message || 'Something went wrong';
       });
   }
 });

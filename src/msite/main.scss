@@ -28,6 +28,53 @@ body {
   @include typography-regular-ls-2;
 }
 
+// Reusable decorative line with diamond
+.decorated-title {
+  position: relative;
+  padding-bottom: 24px;
+  text-align: center;
+  
+  /* Left half of line */
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-60px);
+    height: 1px;
+    background-color: $label-color;
+    width: 54px;
+    opacity: 0.3;
+  }
+  
+  /* Right half of line */
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 22px;
+    right: 50%;
+    transform: translateX(60px);
+    height: 1px;
+    background-color: $label-color;
+    width: 54px;
+    opacity: 0.3;
+  }
+  
+  /* Diamond in the middle */
+  .diamond {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    bottom: 17px;
+    left: 50%;
+    transform: translate(-50%, 0) rotate(45deg);
+    background-color: white;
+    border: 1px solid $label-color;
+    opacity: 0.3;
+  }
+}
+
 // Large size (18px)
 .fs-18-ls-4 {
   @include typography-large-ls-4;
@@ -51,6 +98,37 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+// Responsive image container
+.brand-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px auto;
+  overflow: hidden;
+  
+  // @media (min-width: 480px) {
+  //   padding: 0 24px;
+  // }
+  
+  // @media (min-width: 768px) {
+  //   padding: 0 32px;
+  // }
+}
+
+// Responsive image
+.responsive-image {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  
+  @media (min-width: 768px) {
+    max-width: 80%; // Slightly smaller on larger screens
+  }
 }
 // Width utilities (1% to 100%)
 @for $i from 1 through 100 {

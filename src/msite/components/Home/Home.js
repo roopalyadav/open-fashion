@@ -3,7 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import './Home.scss';
 import Carousel from '../Carousel/Carousel';
 import NewArrival from '../NewArrival/NewArrival';
-import { fetchCarouselData, fetchNewArrivalData } from '../../redux/slices/homeSlice';
+import Brand from '../Brand';
+import { fetchCarouselData, fetchNewArrivalData, fetchBrandsData } from '../../redux/slices/homeSlice';
 
 // A reusable section renderer that handles status and visibility checks
 const SectionRenderer = ({ sectionName, sectionState, renderComponent }) => {
@@ -43,11 +44,17 @@ function Home() {
       dispatch(fetchNewArrivalData());
     }
     
+    // Fetch brands data when component mounts
+    if (homeState.brands.status === 'idle') {
+      dispatch(fetchBrandsData());
+    }
+    
     // Future data fetching can be added here following the same pattern
   }, [
     dispatch, 
     homeState.carousel.status, 
-    homeState.newArrival.status
+    homeState.newArrival.status,
+    homeState.brands.status
   ]);
 
   return (
@@ -80,6 +87,19 @@ function Home() {
               tabs={newArrivalState.tabs}
               products={newArrivalState.products}
               activeTab={newArrivalState.activeTab}
+            />
+          </div>
+        )}
+      />
+      
+      {/* Brands Section */}
+      <SectionRenderer 
+        sectionName="brands"
+        sectionState={homeState.brands}
+        renderComponent={(brandsState) => (
+          <div className="home-section brands-section">
+            <Brand 
+              imageUrl={brandsState.imageUrl}
             />
           </div>
         )}

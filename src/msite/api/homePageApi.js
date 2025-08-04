@@ -36,3 +36,20 @@ export const getNewArrivalData = async () => {
     };
   }
 };
+
+// Function to fetch brands data from the JSON file
+export const getBrandsData = async () => {
+  try {
+    // Using a dynamic import for the JSON file to ensure proper bundling
+    const homeData = await import('../json/homePage.json');
+    return homeData.brands;
+  } catch (error) {
+    console.error('Error fetching brands data:', error);
+    return {
+      toShow: false,
+      imageUrl: "",
+      status: 'idle',
+      error: null
+    };
+  }
+};

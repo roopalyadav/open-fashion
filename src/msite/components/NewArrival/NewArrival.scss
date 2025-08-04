@@ -4,11 +4,11 @@
   padding: 0px 16px;
   
   @media (min-width: 480px) {
-    padding: 40px 24px;
+    padding: 15px 24px;
   }
   
   @media (min-width: 768px) {
-    padding: 40px 32px;
+    padding: 15px 32px;
   }
   
   .section-title {
@@ -18,55 +18,7 @@
     color: $title-active-color;
     font-size: 20px;
     
-    &.with-underline {
-      position: relative;
-      padding-bottom: 24px;
-      
-      /* Left half of line */
-      &:before {
-        content: '';
-        position: absolute;
-        bottom: 22px;
-        left: 50%;
-        transform: translateX(-60px);
-        height: 1px;
-        background-color: $label-color;
-        width: 54px;
-        opacity: 0.3;
-      }
-      
-      /* Right half of line */
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: 22px;
-        right: 50%;
-        transform: translateX(60px);
-        height: 1px;
-        background-color: $label-color;
-        width: 54px;
-        opacity: 0.3;
-      }
-      
-      /* Diamond in the middle - we'll use a separate element for this */
-      .diamond {
-        content: '';
-        position: absolute;
-        width: 8px;
-        height: 8px;
-        bottom: 17px;
-        left: 50%;
-        transform: translate(-50%, 0) rotate(45deg);
-        background-color: white;
-        border: 1px solid $label-color;
-        opacity: 0.3;
-      }
-      
-      /* We don't need the line-right or additional :before pseudo-element anymore */
-      .line-right {
-        display: none;
-      }
-    }
+    /* We're now using the reusable decorated-title class from main.scss */
   }
   
   .tab-navigation {
@@ -175,6 +127,40 @@
       font-size: 15px;
       line-height: 24px;
       color: $default-color;
+    }
+  }
+  
+  /* Explore More button styling */
+  .explore-more-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 32px;
+    margin-bottom: 24px;
+    
+    .explore-more-button {
+      @include typography-regular-ls-2;
+      letter-spacing: 0px;
+      color: $title-active-color;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0;
+      
+      .arrow-right {
+        margin-left: 12px;
+        font-size: 18px;
+        transition: transform 0.3s ease;
+      }
+      
+      &:hover {
+        .arrow-right {
+          transform: translateX(4px);
+        }
+      }
+      
+      &:focus {
+        outline: none;
+      }
     }
   }
 }
