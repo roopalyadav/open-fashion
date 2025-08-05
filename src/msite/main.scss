@@ -38,10 +38,10 @@ body {
   &:before {
     content: '';
     position: absolute;
-    bottom: 22px;
+    bottom: 23px;
     left: 50%;
-    transform: translateX(-60px);
-    height: 1px;
+    transform: translateX(-57px);
+    height: 0.5px;
     background-color: $label-color;
     width: 54px;
     opacity: 0.3;
@@ -51,10 +51,10 @@ body {
   &:after {
     content: '';
     position: absolute;
-    bottom: 22px;
+    bottom: 23px;
     right: 50%;
-    transform: translateX(60px);
-    height: 1px;
+    transform: translateX(57px);
+    height: 0.5px;
     background-color: $label-color;
     width: 54px;
     opacity: 0.3;
@@ -64,9 +64,9 @@ body {
   .diamond {
     content: '';
     position: absolute;
-    width: 8px;
-    height: 8px;
-    bottom: 17px;
+    width: 4px;
+    height: 4px;
+    bottom: 20px;
     left: 50%;
     transform: translate(-50%, 0) rotate(45deg);
     background-color: white;

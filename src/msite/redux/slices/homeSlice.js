@@ -1,5 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { getCarouselData, getNewArrivalData, getBrandsData } from '../../api/homePageApi';
+import { 
+  getCarouselData, 
+  getNewArrivalData, 
+  getBrandsData, 
+  getCollectionData, 
+  getJustForYouData 
+} from '../../api/homePageApi';
 
 // Async thunk for fetching carousel data
 export const fetchCarouselData = createAsyncThunk(
@@ -28,6 +34,24 @@ export const fetchBrandsData = createAsyncThunk(
   }
 );
 
+// Async thunk for fetching collection data
+export const fetchCollectionData = createAsyncThunk(
+  'home/fetchCollectionData',
+  async () => {
+    const collectionData = await getCollectionData();
+    return collectionData;
+  }
+);
+
+// Async thunk for fetching justForYou data
+export const fetchJustForYouData = createAsyncThunk(
+  'home/fetchJustForYouData',
+  async () => {
+    const justForYouData = await getJustForYouData();
+    return justForYouData;
+  }
+);
+
 const initialState = {
   carousel: {
     toShow: true, // Controls whether to show the carousel section
@@ -51,6 +75,19 @@ const initialState = {
   brands: {
     toShow: true,
     imageUrl: "",
+    status: 'idle',
+    error: null
+  },
+  collection: {
+    toShow: true,
+    imageUrl: "",
+    status: 'idle',
+    error: null
+  },
+  justForYou: {
+    toShow: true,
+    title: "Just For You",
+    products: [],
     status: 'idle',
     error: null
   },
@@ -154,6 +191,59 @@ const homeSlice = createSlice({
       .addCase(fetchBrandsData.rejected, (state, action) => {
         state.brands.status = 'failed';
         state.brands.error = action.error.message || 'Something went wrong';
+      })
+      
+      // Collection data reducers
+      .addCase(fetchCollectionData.pending, (state) => {
+        state.collection.status = 'loading';
+      })
+      .addCase(fetchCollectionData.fulfilled, (state, action) => {
+        if (action.payload) {
+          // Preserve the current toShow value from state when updating
+          const toShowValue = state.collection.toShow;
+          
+          state.collection = {
+            toShow: action.payload.isShow !== undefined 
+              ? action.payload.isShow 
+              : toShowValue,
+            imageUrl: action.payload['image-url'] || "",
+            status: 'succeeded',
+            error: null
+          };
+        } else {
+          state.collection.status = 'succeeded';
+        }
+      })
+      .addCase(fetchCollectionData.rejected, (state, action) => {
+        state.collection.status = 'failed';
+        state.collection.error = action.error.message || 'Something went wrong';
+      })
+      
+      // JustForYou data reducers
+      .addCase(fetchJustForYouData.pending, (state) => {
+        state.justForYou.status = 'loading';
+      })
+      .addCase(fetchJustForYouData.fulfilled, (state, action) => {
+        if (action.payload) {
+          // Preserve the current toShow value from state when updating
+          const toShowValue = state.justForYou.toShow;
+          
+          state.justForYou = {
+            toShow: action.payload.isShow !== undefined 
+              ? action.payload.isShow 
+              : toShowValue,
+            title: action.payload.title || "Just For You",
+            products: action.payload.products || [],
+            status: 'succeeded',
+            error: null
+          };
+        } else {
+          state.justForYou.status = 'succeeded';
+        }
+      })
+      .addCase(fetchJustForYouData.rejected, (state, action) => {
+        state.justForYou.status = 'failed';
+        state.justForYou.error = action.error.message || 'Something went wrong';
       });
   }
 });

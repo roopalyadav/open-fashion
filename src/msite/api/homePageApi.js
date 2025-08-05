@@ -53,3 +53,38 @@ export const getBrandsData = async () => {
     };
   }
 };
+
+// Function to fetch collection data from the JSON file
+export const getCollectionData = async () => {
+  try {
+    // Using a dynamic import for the JSON file to ensure proper bundling
+    const homeData = await import('../json/homePage.json');
+    return homeData.collection;
+  } catch (error) {
+    console.error('Error fetching collection data:', error);
+    return {
+      toShow: false,
+      imageUrl: "",
+      status: 'idle',
+      error: null
+    };
+  }
+};
+
+// Function to fetch justForYou data from the JSON file
+export const getJustForYouData = async () => {
+  try {
+    // Using a dynamic import for the JSON file to ensure proper bundling
+    const homeData = await import('../json/homePage.json');
+    return homeData.justForYou;
+  } catch (error) {
+    console.error('Error fetching justForYou data:', error);
+    return {
+      toShow: false,
+      title: "Just For You",
+      products: [],
+      status: 'idle',
+      error: null
+    };
+  }
+};

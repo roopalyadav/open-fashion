@@ -4,7 +4,15 @@ import './Home.scss';
 import Carousel from '../Carousel/Carousel';
 import NewArrival from '../NewArrival/NewArrival';
 import Brand from '../Brand';
-import { fetchCarouselData, fetchNewArrivalData, fetchBrandsData } from '../../redux/slices/homeSlice';
+import Collection from '../Collection';
+import JustForYou from '../JustForYou/JustForYou';
+import { 
+  fetchCarouselData, 
+  fetchNewArrivalData, 
+  fetchBrandsData, 
+  fetchCollectionData,
+  fetchJustForYouData 
+} from '../../redux/slices/homeSlice';
 
 // A reusable section renderer that handles status and visibility checks
 const SectionRenderer = ({ sectionName, sectionState, renderComponent }) => {
@@ -49,12 +57,24 @@ function Home() {
       dispatch(fetchBrandsData());
     }
     
+    // Fetch collection data when component mounts
+    if (homeState.collection.status === 'idle') {
+      dispatch(fetchCollectionData());
+    }
+    
+    // Fetch justForYou data when component mounts
+    if (homeState.justForYou.status === 'idle') {
+      dispatch(fetchJustForYouData());
+    }
+    
     // Future data fetching can be added here following the same pattern
   }, [
     dispatch, 
     homeState.carousel.status, 
     homeState.newArrival.status,
-    homeState.brands.status
+    homeState.brands.status,
+    homeState.collection.status,
+    homeState.justForYou.status
   ]);
 
   return (
@@ -100,6 +120,33 @@ function Home() {
           <div className="home-section brands-section">
             <Brand 
               imageUrl={brandsState.imageUrl}
+            />
+          </div>
+        )}
+      />
+      
+      {/* Collection Section */}
+      <SectionRenderer 
+        sectionName="collection"
+        sectionState={homeState.collection}
+        renderComponent={(collectionState) => (
+          <div className="home-section collection-section">
+            <Collection 
+              imageUrl={collectionState.imageUrl}
+            />
+          </div>
+        )}
+      />
+      
+      {/* Just For You Section */}
+      <SectionRenderer 
+        sectionName="justForYou"
+        sectionState={homeState.justForYou}
+        renderComponent={(justForYouState) => (
+          <div className="home-section just-for-you-section">
+            <JustForYou 
+              title={justForYouState.title}
+              products={justForYouState.products}
             />
           </div>
         )}

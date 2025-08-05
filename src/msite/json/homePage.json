@@ -75,28 +75,28 @@
       "all": [
         {
           "id": "na001",
-          "image": "/assets/newArrival/product-all-1.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(2).png?updatedAt=1754408297947",
           "title": "Textured Sunset Sweater",
           "price": 63.85,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na002",
-          "image": "/assets/newArrival/product-all-2.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(1).png?updatedAt=1754405231852",
           "title": "Imperial Alpaca Hoodie",
           "price": 525.00,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na003",
-          "image": "/assets/newArrival/product-all-3.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(3).png?updatedAt=1754408296873",
           "title": "Beige Minimalist Dress",
           "price": 236.00,
           "categories": ["apparel", "dress"]
         },
         {
           "id": "na004",
-          "image": "/assets/newArrival/product-all-4.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(1).png?updatedAt=1754408296945",
           "title": "Leather Weekend Duffle Bag",
           "price": 185.00,
           "categories": ["bag"]
@@ -105,28 +105,28 @@
       "apparel": [
         {
           "id": "na001",
-          "image": "/assets/newArrival/dress-4.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(3).png?updatedAt=1754408296873",
           "title": "Textured Sunset Sweater",
           "price": 63.85,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na002",
-          "image": "/assets/newArrival/dress-3.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(1).png?updatedAt=1754408296945",
           "title": "Imperial Alpaca Hoodie",
           "price": 525.00,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na003",
-          "image": "/assets/newArrival/dress-1.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(2).png?updatedAt=1754408136568",
           "title": "Beige Minimalist Dress",
           "price": 236.00,
           "categories": ["apparel", "dress"]
         },
         {
           "id": "na005",
-          "image": "/assets/newArrival/bag-2.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
           "title": "Linen Summer Blazer",
           "price": 325.00,
           "categories": ["apparel"]
@@ -135,28 +135,28 @@
       "dress": [
         {
           "id": "na003",
-          "image": "/assets/newArrival/dress-1.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
           "title": "Beige Minimalist Dress",
           "price": 236.00,
           "categories": ["apparel", "dress"]
         },
         {
           "id": "na006",
-          "image": "/assets/newArrival/dress-2.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(1).png?updatedAt=1754405231852",
           "title": "Floral Print Midi Dress",
           "price": 175.00,
           "categories": ["apparel", "dress"]
         },
         {
           "id": "na007",
-          "image": "/assets/newArrival/dress-3.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(3).png?updatedAt=1754408296873",
           "title": "Silk Evening Dress",
           "price": 499.00,
           "categories": ["apparel", "dress"]
         },
         {
           "id": "na008",
-          "image": "/assets/newArrival/dress-4.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(2).png?updatedAt=1754408136568",
           "title": "Casual Summer Dress",
           "price": 129.00,
           "categories": ["apparel", "dress"]
@@ -165,28 +165,28 @@
       "tshirt": [
         {
           "id": "na001",
-          "image": "/assets/newArrival/product-all-2.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20321.png?updatedAt=1754405070483",
           "title": "Textured Sunset Sweater",
           "price": 63.85,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na002",
-          "image": "/assets/newArrival/dress-3.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(2).png?updatedAt=1754408136568",
           "title": "Imperial Alpaca Hoodie",
           "price": 525.00,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na009",
-          "image": "/assets/newArrival/dress-1.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
           "title": "Organic Cotton T-Shirt",
           "price": 45.00,
           "categories": ["apparel", "tshirt"]
         },
         {
           "id": "na010",
-          "image": "/assets/newArrival/product-all-1.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(3).png?updatedAt=1754408296873",
           "title": "Graphic Print Tee",
           "price": 39.99,
           "categories": ["apparel", "tshirt"]
@@ -195,28 +195,28 @@
       "bag": [
         {
           "id": "na004",
-          "image": "/assets/newArrival/product-all-4.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(2).png?updatedAt=1754408136568",
           "title": "Leather Weekend Duffle Bag",
           "price": 185.00,
           "categories": ["bag"]
         },
         {
           "id": "na011",
-          "image": "/assets/newArrival/bag-1.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
           "title": "Canvas Tote Bag",
           "price": 75.00,
           "categories": ["bag"]
         },
         {
           "id": "na012",
-          "image": "/assets/newArrival/product-all-2.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(1).png?updatedAt=1754408296945",
           "title": "Structured Leather Handbag",
           "price": 295.00,
           "categories": ["bag"]
         },
         {
           "id": "na013",
-          "image": "/assets/newArrival/bag-2.svg",
+          "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(1).png?updatedAt=1754405231852",
           "title": "Crossbody Mini Bag",
           "price": 125.00,
           "categories": ["bag"]
@@ -227,5 +227,35 @@
   "brands": {
     "isShow": true,
     "image-url": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Brand.png?updatedAt=1754323627135"
+  },
+  "collection": {
+    "isShow": true,
+    "image-url": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Collection.png?updatedAt=1754326596007"
+  },
+  "justForYou": {
+    "isShow": true,
+    "title": "Just For You",
+    "status": "idle",
+    "error": null,
+    "products": [
+      {
+        "id": "jfy001",
+        "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20321.png?updatedAt=1754405070483",
+        "title": "Elegant Silk Scarf",
+        "price": 45.00
+      },
+      {
+        "id": "jfy002",
+        "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
+        "title": "Classic Leather Watch",
+        "price": 150.00
+      },
+      {
+        "id": "jfy003",
+        "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325%20(1).png?updatedAt=1754405231852",
+        "title": "Vintage Sunglasses",
+        "price": 85.00
+      }
+    ]
   }
 }
