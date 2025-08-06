@@ -1,0 +1,99 @@
+@use '../../variables.scss' as *;
+
+.footer {
+    margin-top: 20px;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  
+  .social-media-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 32px;
+    
+    .social-icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 12px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &:hover {
+        opacity: 0.7;
+      }
+      
+      img {
+        width: 22px;
+        height: 22px;
+        display: block;
+      }
+    }
+  }
+  
+  .footer-contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 32px;
+    
+    .contact-item {
+      margin-bottom: 8px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    
+    .contact-link {
+      @include typography-regular-ls-0;
+      color: $title-active-color;
+      text-decoration: none;
+      transition: color 0.2s ease;
+      
+      &:hover {
+        color: $default-color;
+      }
+    }
+    
+    .contact-hours {
+      @include typography-regular-ls-0;
+      color: $title-active-color;
+    }
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+  
+  .footer-link {
+    @include typography-regular-ls-0;
+    color: $title-active-color;
+    padding: 0 16px;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    
+    &:hover {
+      color: $default-color;
+    }
+    
+    &:active {
+      opacity: 0.8;
+    }
+  }
+  
+  .footer-copyright {
+    width: 100%;
+    background-color: rgba(196, 196, 196, 0.1);
+    text-align: center;
+    @include typography-small-ls-0;
+    color: $placeholder-color;
+    font-size: 12px;
+  }
+}

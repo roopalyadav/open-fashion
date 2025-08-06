@@ -62,4 +62,24 @@
       }
     }
   }
+  
+  // About banner section styling
+  .about-banner-section {
+    .about-banner-container {
+      max-width: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    
+    .about-banner-image {
+      width: 100%;
+      display: block;
+      transition: transform 0.3s ease;
+      
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+  }
 }

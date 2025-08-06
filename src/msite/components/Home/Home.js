@@ -151,6 +151,16 @@ function Home() {
           </div>
         )}
       />
+
+      <div className="home-section about-banner-section">
+        <div className="about-banner-container">
+          <img 
+            src="https://ik.imagekit.io/d6em7wa1j/open-fashion/Openfashion.png?updatedAt=1754480505028"
+            alt="About Banner"
+            className="about-banner-image"  
+          />
+        </div>
+      </div>
     </div>
   );
 }
