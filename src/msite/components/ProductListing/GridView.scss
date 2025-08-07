@@ -1,0 +1,82 @@
+@use '../../variables.scss' as *;
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(2, 170px);
+  gap: 24px 16px;
+  padding: 10px 0;
+  justify-content: center;
+  
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+    height: 285px;
+    
+    .product-image-container {
+    //   height: 235px;
+      width: 170px;
+    //   overflow: hidden;
+    //   margin: 0 auto 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      
+      .product-image {
+        // width: 185px;
+        height: 220px;
+        // object-fit: cover;
+        // object-position: center top;
+      }
+    }
+    
+    .product-details {
+    //   padding: 0;
+    //   text-align: center;
+      
+      .product-title {
+        @include typography-medium-ls-0;
+        // margin: 0 0 4px 0;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        color: $title-active-color;
+      }
+      
+      .product-price {
+        @include typography-regular-ls-0;
+        // margin: 0 0 4px 0;
+        color: $default-color;
+      }
+      
+      .product-rating {
+        .star {
+          color: #ddd;
+          font-size: 14px;
+          
+          &.filled {
+            color: #FFBA5A;
+          }
+        }
+        
+        .rating-number {
+          font-size: 12px;
+          color: $placeholder-color;
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+  
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, 185px);
+  }
+  
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 185px);
+  }
+  
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(5, 185px);
+  }
+}

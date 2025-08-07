@@ -1,0 +1,95 @@
+@use '../../variables.scss' as *;
+
+.product-listing-container {
+  padding: 16px;
+  
+  .listing-header {
+    // Add the decorated title style similar to other sections
+    .listing-title {
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%) rotate(45deg);
+        width: 6px;
+        height: 6px;
+        background-color: $default-color;
+        margin-bottom: -14px;
+      }
+    }
+    
+    .listing-title {
+      @include typography-large-ls-4;
+      margin: 0 0 16px 0;
+      color: $title-active-color;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    
+    .listing-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      
+      .category-name {
+        @include typography-medium-ls-2;
+        letter-spacing: 0px;
+        margin: 0;
+        color: $title-active-color;
+        text-transform: uppercase;
+      }
+      
+      .sort-options {
+        .sort-select {
+          @include typography-medium-ls-2;
+          padding: 8px;
+          border: 1px solid $border-color;
+          border-radius: 4px;
+          font-family: $font-family-base;
+          font-size: 14px;
+          line-height: 20px;
+          letter-spacing: 2px;
+          background-color: #fff;
+          
+          &:focus {
+            outline: none;
+            border-color: $default-color;
+          }
+        }
+      }
+      
+      .view-toggle {
+        display: flex;
+        align-items: center;
+        
+        .view-switcher {
+          cursor: pointer;
+          display: flex;
+          background: rgba(#c4c4c4, 0.4);
+          border-radius: 50%;
+          align-items: center;
+          justify-content: center;
+          padding: 6px;
+          
+          .view-icon {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+            
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .product-view {
+    min-height: 300px; // Ensures some space when loading
+  }
+}

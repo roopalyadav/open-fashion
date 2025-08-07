@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import homeReducer from './slices/homeSlice';
+import listingReducer from './slices/listingSlice';
 
 // Configure the Redux store
 const store = configureStore({
   reducer: {
     home: homeReducer,
+    listing: listingReducer,
     // Add other reducers here as needed
   },
   // Optional middleware configuration

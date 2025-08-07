@@ -1,0 +1,202 @@
+[
+  {
+    "id": "P001",
+    "title": "Classic White Tee",
+    "description": "A timeless classic, this white t-shirt is made from 100% premium cotton, offering both comfort and style. Perfect for any casual occasion.",
+    "price": 25.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20321.png?updatedAt=1754405070483",
+    "categories": ["Tops", "Basics"],
+    "sizes": ["S", "M", "L", "XL"],
+    "rating": 4.8
+  },
+  {
+    "id": "P002",
+    "title": "Slim-Fit Denim Jeans",
+    "description": "Crafted for a modern fit, these slim-fit jeans are versatile and durable. A wardrobe essential for a sleek, contemporary look.",
+    "price": 79.99,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(3).png?updatedAt=1754408296873",
+    "categories": ["Bottoms", "Denim"],
+    "sizes": ["30", "32", "34", "36"],
+    "rating": 4.6
+  },
+  {
+    "id": "P003",
+    "title": "Floral Sundress",
+    "description": "Embrace the sunshine with this light and airy floral sundress. Features a flattering A-line cut and a vibrant floral print.",
+    "price": 54.50,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(1).png?updatedAt=1754577597624",
+    "categories": ["Dresses", "Summer"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.7
+  },
+  {
+    "id": "P004",
+    "title": "Leather Biker Jacket",
+    "description": "Add an edge to your style with this classic biker jacket, made from genuine leather. Features asymmetrical zips and a belted waist.",
+    "price": 250.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20321.png?updatedAt=1754405070483",
+    "categories": ["Outerwear", "Jackets"],
+    "sizes": ["M", "L", "XL"],
+    "rating": 4.9
+  },
+  {
+    "id": "P005",
+    "title": "Cashmere Sweater",
+    "description": "Luxuriously soft and warm, this cashmere sweater is a sophisticated addition to any wardrobe. Perfect for layering in cooler weather.",
+    "price": 120.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(3).png?updatedAt=1754577598782",
+    "categories": ["Knitwear", "Tops"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.8
+  },
+  {
+    "id": "P006",
+    "title": "Chino Shorts",
+    "description": "Stay cool and stylish with these comfortable chino shorts. A versatile choice for warm days, available in various colors.",
+    "price": 45.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(3).png?updatedAt=1754577598782",
+    "categories": ["Bottoms", "Shorts"],
+    "sizes": ["30", "32", "34"],
+    "rating": 4.5
+  },
+  {
+    "id": "P007",
+    "title": "Silk Blouse",
+    "description": "Elegant and fluid, this silk blouse drapes beautifully for a chic and polished look. Ideal for both office and evening wear.",
+    "price": 89.90,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(4).png?updatedAt=1754577598376",
+    "categories": ["Tops", "Blouses"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.7
+  },
+  {
+    "id": "P008",
+    "title": "Wool Blend Coat",
+    "description": "A timeless wool-blend coat that offers both warmth and elegance. Features a classic lapel and a single-breasted front.",
+    "price": 199.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(4).png?updatedAt=1754577598376",
+    "categories": ["Outerwear", "Coats"],
+    "sizes": ["S", "M", "L", "XL"],
+    "rating": 4.9
+  },
+  {
+    "id": "P009",
+    "title": "Athletic Joggers",
+    "description": "Comfort meets style with these athletic joggers. Made from a soft, stretchable fabric, perfect for workouts or lounging.",
+    "price": 55.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
+    "categories": ["Activewear", "Bottoms"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.6
+  },
+  {
+    "id": "P010",
+    "title": "Linen Shirt",
+    "description": "Breathable and lightweight, this linen shirt is a must-have for summer. Its relaxed fit ensures comfort all day long.",
+    "price": 65.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(2).png?updatedAt=1754577597874",
+    "categories": ["Tops", "Shirts"],
+    "sizes": ["M", "L", "XL"],
+    "rating": 4.7
+  },
+  {
+    "id": "P011",
+    "title": "Embroidered Cardigan",
+    "description": "This elegant embroidered cardigan features intricate floral designs. Perfect for adding a touch of sophistication to any outfit.",
+    "price": 85.50,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344.png?updatedAt=1754577598383",
+    "categories": ["Knitwear", "Tops"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.8
+  },
+  {
+    "id": "P012",
+    "title": "High-Waisted Palazzo Pants",
+    "description": "Make a statement with these flowing palazzo pants. The high-waisted cut and wide legs create a dramatic silhouette.",
+    "price": 72.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20325.png?updatedAt=1754405155779",
+    "categories": ["Bottoms", "Pants"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.6
+  },
+  {
+    "id": "P013",
+    "title": "Printed Midi Skirt",
+    "description": "This versatile midi skirt features a unique print and flattering A-line silhouette. Perfect for both casual and dressy occasions.",
+    "price": 68.50,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(1).png?updatedAt=1754577597624",
+    "categories": ["Bottoms", "Skirts"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.7
+  },
+  {
+    "id": "P014",
+    "title": "Quilted Vest",
+    "description": "Stay warm without bulk in this lightweight quilted vest. Features a stand collar and convenient zippered pockets.",
+    "price": 95.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(2).png?updatedAt=1754577597874",
+    "categories": ["Outerwear", "Vests"],
+    "sizes": ["S", "M", "L", "XL"],
+    "rating": 4.5
+  },
+  {
+    "id": "P015",
+    "title": "Asymmetric Blouse",
+    "description": "This contemporary blouse features an asymmetric hemline for a modern look. Made from a flowing, comfortable fabric.",
+    "price": 59.99,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344.png?updatedAt=1754577598383",
+    "categories": ["Tops", "Blouses"],
+    "sizes": ["XS", "S", "M", "L"],
+    "rating": 4.6
+  },
+  {
+    "id": "P016",
+    "title": "Leather Ankle Boots",
+    "description": "These stylish leather ankle boots combine comfort and fashion. The block heel provides stability while adding height.",
+    "price": 135.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(1).png?updatedAt=1754408296945",
+    "categories": ["Footwear", "Boots"],
+    "sizes": ["36", "37", "38", "39", "40"],
+    "rating": 4.9
+  },
+  {
+    "id": "P017",
+    "title": "Statement Earrings",
+    "description": "Add a bold touch to any outfit with these eye-catching statement earrings. Lightweight despite their impressive size.",
+    "price": 45.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(5).png?updatedAt=1754577597522",
+    "categories": ["Accessories", "Jewelry"],
+    "sizes": ["One Size"],
+    "rating": 4.7
+  },
+  {
+    "id": "P018",
+    "title": "Wrap Maxi Dress",
+    "description": "This flattering wrap maxi dress is perfect for special occasions. Features a flowing skirt and adjustable waist tie.",
+    "price": 110.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(1).png?updatedAt=1754408296945",
+    "categories": ["Dresses", "Evening"],
+    "sizes": ["S", "M", "L"],
+    "rating": 4.8
+  },
+  {
+    "id": "P019",
+    "title": "Structured Tote Bag",
+    "description": "This spacious structured tote is both practical and stylish. Features internal pockets and a secure top closure.",
+    "price": 125.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20344%20(5).png?updatedAt=1754577597522",
+    "categories": ["Accessories", "Bags"],
+    "sizes": ["One Size"],
+    "rating": 4.9
+  },
+  {
+    "id": "P020",
+    "title": "Oversized Sunglasses",
+    "description": "These oversized sunglasses offer both style and protection. The large frames create a glamorous, statement-making look.",
+    "price": 85.00,
+    "image": "https://ik.imagekit.io/d6em7wa1j/open-fashion/Rectangle%20433%20(3).png?updatedAt=1754408296873",
+    "categories": ["Accessories", "Eyewear"],
+    "sizes": ["One Size"],
+    "rating": 4.7
+  }
+]

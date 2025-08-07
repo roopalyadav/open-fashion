@@ -1,14 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import './NewArrival.scss';
 import { setNewArrivalActiveTab } from '../../redux/slices/homeSlice';
 
 function NewArrival({ title, tabs, products, activeTab }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Change the active tab
   const handleTabClick = (tabId) => {
     dispatch(setNewArrivalActiveTab(tabId));
+  };
+  
+  // Navigate to products listing page
+  const handleExploreMoreClick = () => {
+    navigate('/products');
   };
 
   // Get products for the active tab
@@ -55,7 +62,11 @@ function NewArrival({ title, tabs, products, activeTab }) {
 
       {/* Explore More button */}
       <div className="explore-more-container">
-        <div className="explore-more-button">
+        <div 
+          className="explore-more-button"
+          onClick={handleExploreMoreClick}
+          role="button"
+        >
           Explore More
           <span className="arrow-right">→</span>
         </div>
