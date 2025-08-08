@@ -19,6 +19,7 @@ export const fetchProductListingData = createAsyncThunk(
 const initialState = {
   products: [],
   filteredProducts: [],
+  displayedProducts: [], // Products currently displayed (for pagination)
   activeFilters: {
     category: 'all',
     sortBy: 'popularity',
@@ -26,7 +27,12 @@ const initialState = {
   },
   viewType: 'grid',
   status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
-  error: null
+  error: null,
+  pagination: {
+    itemsPerPage: 6,
+    currentPage: 1,
+    hasMore: false
+  }
 };
 
 const listingSlice = createSlice({
@@ -45,12 +51,22 @@ const listingSlice = createSlice({
         ...state.activeFilters,
         category: action.payload,
       });
+      
+      // Reset pagination when filter changes
+      state.pagination.currentPage = 1;
+      state.displayedProducts = state.filteredProducts.slice(0, state.pagination.itemsPerPage);
+      state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
     },
     
     // Action to set sort by filter
     setSortByFilter: (state, action) => {
       state.activeFilters.sortBy = action.payload;
       state.filteredProducts = sortProducts(state.filteredProducts, action.payload);
+      
+      // Reset pagination when sort changes
+      state.pagination.currentPage = 1;
+      state.displayedProducts = state.filteredProducts.slice(0, state.pagination.itemsPerPage);
+      state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
     },
     
     // Action to set price range filter
@@ -60,6 +76,11 @@ const listingSlice = createSlice({
         ...state.activeFilters,
         priceRange: action.payload,
       });
+      
+      // Reset pagination when filter changes
+      state.pagination.currentPage = 1;
+      state.displayedProducts = state.filteredProducts.slice(0, state.pagination.itemsPerPage);
+      state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
     },
     
     // Reset all filters
@@ -71,6 +92,22 @@ const listingSlice = createSlice({
       };
       state.filteredProducts = [...state.products];
       state.filteredProducts = sortProducts(state.filteredProducts, 'popularity');
+      
+      // Reset pagination
+      state.pagination.currentPage = 1;
+      state.displayedProducts = state.filteredProducts.slice(0, state.pagination.itemsPerPage);
+      state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
+    },
+    
+    // Load more products (pagination)
+    loadMoreProducts: (state) => {
+      const nextPage = state.pagination.currentPage + 1;
+      const startIndex = 0;
+      const endIndex = nextPage * state.pagination.itemsPerPage;
+      
+      state.pagination.currentPage = nextPage;
+      state.displayedProducts = state.filteredProducts.slice(startIndex, endIndex);
+      state.pagination.hasMore = state.filteredProducts.length > endIndex;
     },
   },
   extraReducers: (builder) => {
@@ -85,6 +122,11 @@ const listingSlice = createSlice({
         // Apply initial filtering and sorting
         state.filteredProducts = [...action.payload];
         state.filteredProducts = sortProducts(state.filteredProducts, state.activeFilters.sortBy);
+        
+        // Initialize displayed products for pagination
+        state.displayedProducts = state.filteredProducts.slice(0, state.pagination.itemsPerPage);
+        state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
+        state.pagination.currentPage = 1;
         state.error = null;
       })
       .addCase(fetchProductListingData.rejected, (state, action) => {
@@ -134,7 +176,8 @@ export const {
   setCategoryFilter, 
   setSortByFilter, 
   setPriceRangeFilter,
-  resetFilters 
+  resetFilters,
+  loadMoreProducts
 } = listingSlice.actions;
 
 export default listingSlice.reducer;

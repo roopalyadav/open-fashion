@@ -13,9 +13,10 @@ function NewArrival({ title, tabs, products, activeTab }) {
     dispatch(setNewArrivalActiveTab(tabId));
   };
   
-  // Navigate to products listing page
+  // Navigate to products listing page and scroll to top
   const handleExploreMoreClick = () => {
     navigate('/products');
+    window.scrollTo(0, 0); // Scroll to top of the page
   };
 
   // Get products for the active tab

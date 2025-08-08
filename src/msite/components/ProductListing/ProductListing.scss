@@ -39,7 +39,7 @@
         letter-spacing: 0px;
         margin: 0;
         color: $title-active-color;
-        text-transform: uppercase;
+        // text-transform: uppercase;
       }
       
       .sort-options {
@@ -91,5 +91,35 @@
   
   .product-view {
     min-height: 300px; // Ensures some space when loading
+    
+    .product-section {
+      display: flex;
+      flex-direction: column;
+      
+      .load-more-container {
+        display: flex;
+        justify-content: center;
+        margin: 32px 0 16px;
+        
+        .load-more-button {
+          @include typography-medium-ls-2;
+          background-color: transparent;
+          letter-spacing: 0px;
+          border: 1px solid $default-color;
+          color: $default-color;
+          padding: 12px 40px;
+          cursor: pointer;
+          text-transform: uppercase;
+          transition: all 0.15s ease;
+          outline: none;
+          
+          &:active {
+            background-color: $default-color;
+            color: #fff;
+            transform: scale(0.98);
+          }
+        }
+      }
+    }
   }
 }

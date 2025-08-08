@@ -6,12 +6,12 @@ import './ProductListing.scss';
 import { 
   fetchProductListingData,
   setViewType,
-  setSortByFilter
+  loadMoreProducts
 } from '../../redux/slices/listingSlice';
 
 
 // A helper function to render the product section based on status
-const renderProductSection = ({ status, viewType, filteredProducts }) => {
+const renderProductSection = ({ status, viewType, displayedProducts, hasMore, onLoadMore }) => {
   // Handle loading state
   if (status === 'loading') {
     return <div className="loading-indicator">Loading products...</div>;
@@ -22,18 +22,38 @@ const renderProductSection = ({ status, viewType, filteredProducts }) => {
     return <div className="error-message">Error loading products. Please try again.</div>;
   }
   
-  // Render appropriate view based on viewType
-  return viewType === 'grid' ? (
-    <GridView products={filteredProducts} />
-  ) : (
-    <ListView products={filteredProducts} />
+  return (
+    <div className="product-section">
+      {/* Render appropriate view based on viewType */}
+      {viewType === 'grid' ? (
+        <GridView products={displayedProducts} />
+      ) : (
+        <ListView products={displayedProducts} />
+      )}
+      
+      {/* Load More button */}
+      {hasMore && (
+        <div className="load-more-container">
+          <div className="load-more-button" onClick={onLoadMore}>
+            Load More
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
 
 const ProductListing = () => {
   const dispatch = useDispatch();
-  const { products, filteredProducts, viewType, status, activeFilters } = useSelector(state => state.listing);
-  const sortBy = activeFilters.sortBy;
+  const { 
+    products, 
+    displayedProducts, 
+    viewType, 
+    status, 
+    activeFilters,
+    pagination
+  } = useSelector(state => state.listing);
+  const hasMore = pagination.hasMore;
 
   useEffect(() => {
     // Fetch products when component mounts if not already loaded
@@ -45,23 +65,10 @@ const ProductListing = () => {
   return (
     <div className="product-listing-container">
       <div className="listing-header">
-        {/* <h1 className="listing-title">Product Collection</h1> */}
         <div className="listing-options">
           <div className="category-name">
             {activeFilters.category === 'all' ? 'All Products' : activeFilters.category}
           </div>
-          {/* <div className="sort-options">
-            <select 
-              value={sortBy}
-              onChange={(e) => dispatch(setSortByFilter(e.target.value))}
-              className="sort-select"
-            >
-              <option value="popularity">Popular</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="rating">Top Rated</option>
-            </select>
-          </div> */}
           <div className="view-toggle">
             <div className="view-switcher" onClick={() => dispatch(setViewType(viewType === 'grid' ? 'list' : 'grid'))}>
               {viewType === 'grid' ? (
@@ -86,7 +93,9 @@ const ProductListing = () => {
         {renderProductSection({
           status,
           viewType,
-          filteredProducts
+          displayedProducts,
+          hasMore,
+          onLoadMore: () => dispatch(loadMoreProducts())
         })}
       </div>
     </div>
