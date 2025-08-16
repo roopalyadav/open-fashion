@@ -1,17 +1,19 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import GridView from './GridView';
 import ListView from './ListView';
 import './ProductListing.scss';
 import { 
   fetchProductListingData,
   setViewType,
-  loadMoreProducts
+  loadMoreProducts,
+  setSearchTermFilter
 } from '../../redux/slices/listingSlice';
 
 
 // A helper function to render the product section based on status
-const renderProductSection = ({ status, viewType, displayedProducts, hasMore, onLoadMore }) => {
+const renderProductSection = ({ status, viewType, displayedProducts, hasMore, onLoadMore, searchTerm }) => {
   // Handle loading state
   if (status === 'loading') {
     return <div className="loading-indicator">Loading products...</div>;
@@ -20,6 +22,27 @@ const renderProductSection = ({ status, viewType, displayedProducts, hasMore, on
   // Handle error state
   if (status === 'failed') {
     return <div className="error-message">Error loading products. Please try again.</div>;
+  }
+  
+  // Handle no search results
+  if (searchTerm && displayedProducts.length === 0) {
+    return (
+      <div className="no-results-message">
+        <div>No products found</div>
+        <p>Sorry, we couldn't find any products matching "{searchTerm}".</p>
+        <p>Please try a different search term or browse our categories.</p>
+      </div>
+    );
+  }
+  
+  // Handle no products at all (when no search term)
+  if (!searchTerm && displayedProducts.length === 0) {
+    return (
+      <div className="no-results-message">
+        <div>No products available</div>
+        <p>There are currently no products to display.</p>
+      </div>
+    );
   }
   
   return (
@@ -45,6 +68,7 @@ const renderProductSection = ({ status, viewType, displayedProducts, hasMore, on
 
 const ProductListing = () => {
   const dispatch = useDispatch();
+  const [searchParams] = useSearchParams();
   const { 
     products, 
     displayedProducts, 
@@ -53,7 +77,13 @@ const ProductListing = () => {
     activeFilters,
     pagination
   } = useSelector(state => state.listing);
+  const searchTerm = searchParams.get('search') || '';
   const hasMore = pagination.hasMore;
+
+  // Set search term immediately when component mounts (before data loading)
+  useEffect(() => {
+    dispatch(setSearchTermFilter(searchTerm));
+  }, [dispatch, searchTerm]);
 
   useEffect(() => {
     // Fetch products when component mounts if not already loaded
@@ -67,7 +97,9 @@ const ProductListing = () => {
       <div className="listing-header">
         <div className="listing-options">
           <div className="category-name">
-            {activeFilters.category === 'all' ? 'All Products' : activeFilters.category}
+            {searchTerm 
+              ? `Search results for: "${searchTerm}"`
+              : activeFilters.category === 'all' ? 'All Products' : activeFilters.category}
           </div>
           <div className="view-toggle">
             <div className="view-switcher" onClick={() => dispatch(setViewType(viewType === 'grid' ? 'list' : 'grid'))}>
@@ -95,6 +127,7 @@ const ProductListing = () => {
           viewType,
           displayedProducts,
           hasMore,
+          searchTerm,
           onLoadMore: () => dispatch(loadMoreProducts())
         })}
       </div>

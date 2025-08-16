@@ -29,16 +29,19 @@ function SearchBar() {
     
     const handleSearch = (e) => {
         e.preventDefault();
-        // Here you would implement the actual search logic
-        console.log('Searching for:', searchQuery);
-        // For now, we'll just close the sidebar
-        closeSearchSidebar();
+        if (searchQuery.trim()) {
+            // Navigate to products page with search query parameter
+            window.location.href = `/products?search=${encodeURIComponent(searchQuery.trim())}`;
+            setSearchQuery('');
+            closeSearchSidebar();
+        }
     };
     
     const handleTrendingItemClick = (item) => {
-        setSearchQuery(item);
-        // Optional: Auto-search when clicking a trending item
-        // handleSearch({ preventDefault: () => {} });
+        // Navigate to products page with the trending item as search query
+        window.location.href = `/products?search=${encodeURIComponent(item)}`;
+        setSearchQuery('');
+        closeSearchSidebar();
     };
     
     return (

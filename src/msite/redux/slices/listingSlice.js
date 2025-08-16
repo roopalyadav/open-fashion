@@ -24,6 +24,7 @@ const initialState = {
     category: 'all',
     sortBy: 'popularity',
     priceRange: [0, 1000],
+    searchTerm: '',
   },
   viewType: 'grid',
   status: 'idle', // 'idle' | 'loading' | 'succeeded' | 'failed'
@@ -83,12 +84,32 @@ const listingSlice = createSlice({
       state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
     },
     
+    // Action to set search term filter
+    setSearchTermFilter: (state, action) => {
+      state.activeFilters.searchTerm = action.payload;
+      
+      // Only apply filtering if products are loaded
+      if (state.products.length > 0) {
+        // Apply search filtering
+        state.filteredProducts = filterProducts(state.products, {
+          ...state.activeFilters,
+          searchTerm: action.payload,
+        });
+        
+        // Reset pagination when search changes
+        state.pagination.currentPage = 1;
+        state.displayedProducts = state.filteredProducts.slice(0, state.pagination.itemsPerPage);
+        state.pagination.hasMore = state.filteredProducts.length > state.pagination.itemsPerPage;
+      }
+    },
+    
     // Reset all filters
     resetFilters: (state) => {
       state.activeFilters = {
         category: 'all',
         sortBy: 'popularity',
         priceRange: [0, 1000],
+        searchTerm: '',
       };
       state.filteredProducts = [...state.products];
       state.filteredProducts = sortProducts(state.filteredProducts, 'popularity');
@@ -119,8 +140,9 @@ const listingSlice = createSlice({
         state.status = 'succeeded';
         // Update products with fetched data
         state.products = action.payload;
-        // Apply initial filtering and sorting
-        state.filteredProducts = [...action.payload];
+        
+        // Apply filtering based on current filters (including search term if present)
+        state.filteredProducts = filterProducts(action.payload, state.activeFilters);
         state.filteredProducts = sortProducts(state.filteredProducts, state.activeFilters.sortBy);
         
         // Initialize displayed products for pagination
@@ -139,6 +161,22 @@ const listingSlice = createSlice({
 // Helper function to filter products based on criteria
 const filterProducts = (products, filters) => {
   return products.filter(product => {
+    // Filter by search term first (if present)
+    if (filters.searchTerm && filters.searchTerm.trim() !== '') {
+      const searchTermLower = filters.searchTerm.toLowerCase().trim();
+      
+      const titleMatch = product.title && 
+        product.title.toLowerCase().includes(searchTermLower);
+      const categoryMatch = product.categories && 
+        product.categories.some(category => 
+          category.toLowerCase().includes(searchTermLower)
+        );
+      
+      // If search term is provided, only search term matters
+      return titleMatch || categoryMatch;
+    }
+    
+    // If no search term, apply regular filters
     // Filter by category
     const categoryMatch = filters.category === 'all' || 
       (product.categories && product.categories.includes(filters.category));
@@ -176,6 +214,7 @@ export const {
   setCategoryFilter, 
   setSortByFilter, 
   setPriceRangeFilter,
+  setSearchTermFilter,
   resetFilters,
   loadMoreProducts
 } = listingSlice.actions;

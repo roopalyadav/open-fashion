@@ -1,0 +1,248 @@
+@use '../../variables.scss' as *;
+
+.product-info-container {
+  padding: 16px;
+  min-height: 100vh;
+  background-color: #fff;
+
+  .loading-message,
+  .error-message,
+  .not-found-message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    min-height: 300px;
+
+    h2 {
+      @include typography-large-ls-4;
+      color: $title-active-color;
+      margin: 0 0 16px 0;
+      text-transform: uppercase;
+    }
+
+    p {
+      @include typography-regular-ls-0;
+      color: $placeholder-color;
+      margin: 0 0 20px 0;
+    }
+
+    button {
+      @include typography-medium-ls-2;
+      background-color: $default-color;
+      color: #fff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-transform: uppercase;
+      
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  .loading-message {
+    @include typography-medium-ls-2;
+    color: $placeholder-color;
+  }
+
+  .product-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid $border-color;
+    padding-bottom: 16px;
+
+    .back-button {
+      @include typography-medium-ls-0;
+      background: none;
+      border: none;
+      color: $default-color;
+      cursor: pointer;
+      padding: 8px 0;
+      margin-right: 16px;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    .page-title {
+      @include typography-large-ls-4;
+      color: $title-active-color;
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  .product-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    .product-image-section {
+      .product-main-image {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    .product-details-section {
+      .product-title {
+        @include typography-large-ls-4;
+        color: $title-active-color;
+        margin: 0 0 12px 0;
+      }
+
+      .product-price {
+        @include typography-large-ls-4;
+        color: $default-color;
+        font-weight: 600;
+        margin: 0 0 16px 0;
+      }
+
+      .product-rating {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin: 0 0 24px 0;
+
+        .stars {
+          .star {
+            color: #ddd;
+            font-size: 18px;
+
+            &.filled {
+              color: #FFBA5A;
+            }
+          }
+        }
+
+        .rating-text {
+          @include typography-small-ls-0;
+          color: $placeholder-color;
+        }
+      }
+
+      .product-description,
+      .product-categories,
+      .product-sizes {
+        margin-bottom: 24px;
+
+        h3 {
+          @include typography-medium-ls-2;
+          color: $title-active-color;
+          margin: 0 0 12px 0;
+          text-transform: uppercase;
+        }
+
+        p {
+          @include typography-regular-ls-0;
+          color: $label-color;
+          line-height: 1.6;
+          margin: 0;
+        }
+      }
+
+      .category-tags,
+      .size-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .category-tag,
+      .size-option {
+        @include typography-small-ls-0;
+        background-color: #f5f5f5;
+        color: $default-color;
+        padding: 6px 12px;
+        border-radius: 16px;
+        border: 1px solid $border-color;
+      }
+
+      .size-option {
+        min-width: 40px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background-color: $default-color;
+          color: #fff;
+        }
+      }
+
+      .product-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 32px;
+
+        button {
+          @include typography-medium-ls-2;
+          padding: 14px 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          text-transform: uppercase;
+          transition: all 0.2s ease;
+        }
+
+        .add-to-cart-btn {
+          background-color: transparent;
+          color: $default-color;
+          border: 1px solid $default-color;
+
+          &:hover {
+            background-color: $default-color;
+            color: #fff;
+          }
+        }
+
+        .buy-now-btn {
+          background-color: $default-color;
+          color: #fff;
+          border: 1px solid $default-color;
+
+          &:hover {
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  // Tablet and larger screens
+  @media (min-width: 768px) {
+    padding: 24px;
+
+    .product-content {
+      flex-direction: row;
+      gap: 40px;
+
+      .product-image-section {
+        flex: 1;
+        max-width: 500px;
+      }
+
+      .product-details-section {
+        flex: 1;
+
+        .product-actions {
+          flex-direction: row;
+
+          button {
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+}

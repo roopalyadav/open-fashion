@@ -2,10 +2,18 @@ import React from 'react';
 import './ListView.scss';
 
 const ListView = ({ products }) => {
+  const handleProductClick = (productId) => {
+    window.location.href = `/product/${productId}/description`;
+  };
+
   return (
     <div className="list-view">
       {products.map(product => (
-        <div key={product.id} className="list-item">
+        <div 
+          key={product.id} 
+          className="list-item"
+          onClick={() => handleProductClick(product.id)}
+        >
           <div className="product-image-container">
             <img 
               src={product.image} 

@@ -2,10 +2,18 @@ import React from 'react';
 import './GridView.scss';
 
 const GridView = ({ products }) => {
+  const handleProductClick = (productId) => {
+    window.location.href = `/product/${productId}/description`;
+  };
+
   return (
     <div className="grid-view">
       {products.map(product => (
-        <div key={product.id} className="grid-item">
+        <div 
+          key={product.id} 
+          className="grid-item"
+          onClick={() => handleProductClick(product.id)}
+        >
           <div className="product-image-container">
             <img 
               src={product.image} 

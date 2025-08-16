@@ -19,6 +19,11 @@ function NewArrival({ title, tabs, products, activeTab }) {
     window.scrollTo(0, 0); // Scroll to top of the page
   };
 
+  // Navigate to product detail page
+  const handleProductClick = (productId) => {
+    window.location.href = `/product/${productId}/description`;
+  };
+
   // Get products for the active tab
   const activeProducts = products[activeTab] || [];
 
@@ -45,7 +50,11 @@ function NewArrival({ title, tabs, products, activeTab }) {
       {/* Product grid */}
       <div className="product-grid">
         {activeProducts.map((product) => (
-          <div key={product.id} className="product-card">
+          <div 
+            key={product.id} 
+            className="product-card"
+            onClick={() => handleProductClick(product.id)}
+          >
             <div className="product-image-container">
               <img
                 src={product.image}

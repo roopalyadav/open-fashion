@@ -26,6 +26,10 @@ function Carousel({ images = [], height = 600, autoPlay = true, interval = 5000,
     setCurrentSlide(index);
   };
   
+  const handleExploreClick = () => {
+    window.location.href = '/products';
+  };
+  
   return (
     <div className="carousel" style={{ height: `${height}px` }}>
       <div className="category-labels">
@@ -69,7 +73,10 @@ function Carousel({ images = [], height = 600, autoPlay = true, interval = 5000,
       </div>
       
       <div className="explore-collection-container">
-        <div className="explore-collection-button">
+        <div 
+          className="explore-collection-button"
+          onClick={handleExploreClick}
+        >
           Explore Collection
         </div>
       </div>
